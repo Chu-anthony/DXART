@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hypertext Journey</title>
+
+    <style>
+        body {
+            background-image: url('image_c0dbdd.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #000;
+            color: #00FF00;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* "Click to start" overlay */
+        #start-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            color: #FFFF00;
+            cursor: pointer;
+            z-index: 100;
+            transition: opacity 0.5s ease-out;
+        }
+        #start-overlay:hover {
+            text-shadow: 0 0 15px #FFFF00;
+        }
+
+        /* Main content container */
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.85);
+            border: 1px solid #00FF00;
+            box-shadow: 0 0 20px #00FF00;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 0 0 10px #00FF00;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #FFFFFF;
+            margin-bottom: 30px;
+        }
+
+        /* Navigation links */
+        .paths nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .paths a {
+            color: #FFFF00;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 10px;
+            border: 1px dashed #FFFF00;
+            transition: all 0.3s ease;
+        }
+
+        .paths a:hover {
+            background-color: #FFFF00;
+            color: #000;
+            text-shadow: none;
+            box-shadow: 0 0 15px #FFFF00;
+        }
+
+        /* "Future" content sections */
+        .future {
+            display: none;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #00FF00;
+            background-color: rgba(0, 20, 0, 0.7);
+            border-radius: 5px;
+        }
+
+        .future.active {
+            display: block;
+        }
+
+        .future h3 {
+            color: #FFFFFF;
+            border-bottom: 1px solid #00FF00;
+            padding-bottom: 10px;
+        }
+
+        .future p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Styling for external links */
+        .future a.external-link {
+            color: #00FFFF; /* Cyan for external links */
+            text-decoration: underline;
+        }
+        .future a.external-link:hover {
+            color: #FFFFFF;
+            background-color: #00FFFF;
+        }
+
+        /* Artist Statement / Credits Footer */
+        .credits-footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid #555;
+            border-radius: 5px;
+            text-align: left;
+            font-size: 0.9em;
+            color: #AAA;
+        }
+
+        .credits-footer h4 {
+            color: #FFF;
+            margin-top: 0;
+        }
+
+        .credits-footer p {
+            line-height: 1.5;
+        }
+
+        .credits-footer a {
+            color: #00FFFF;
+            text-decoration: none;
+        }
+
+        .credits-footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="start-overlay">
+        <div>
+            [ Click to initialize system ]
+            <br><br>
+            <span style="font-size: 0.6em; color: #00FF00;">Turn on your sound for the full experience</span>
+        </div>
+    </div>
+
+    <audio id="hacker-sound" preload="auto">
+        <source src="Hacker.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="teacher-sound" preload="auto">
+        <source src="Teacher.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="lego-sound" preload="auto">
+        <source src="lego.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="pingpong-sound" preload="auto">
+        <source src="ping-pong.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container" id="main-content">
+
+        <header>
+            <h1>MY HYPERTEXT JOURNEY</h1>
+            <p class="subtitle">Software Engineer: Amazon &gt; F5 Networks</p>
+        </header>
+
+        <div class="paths">
+            <nav>
+                <a href="#" onclick="showFuture('hacker', event)">[ Path 1: The Super Hacker ]</a>
+                <a href="#" onclick="showFuture('teacher', event)">[ Path 2: The Teaching Odyssey ]</a>
+                <a href="#" onclick="showFuture('lego', event)">[ Path 3: The Lego Architect ]</a>
+                <a href="#" onclick="showFuture('player', event)">[ Path 4: The Unexpected Passion ]</a>
+            </nav>
+        </div>
+
+        <main id="futures-content">
+
+            <div id="hacker" class="future">
+                <h3>// Future_01: Super Hacker</h3>
+                <p>
+                    I imagine myself to be a super hacker. The journey from building distributed systems
+                    at Amazon and securing networks at F5 was just the beginning. Now, I navigate the
+                    deep web, a digital ghost, finding patterns in the noise. This is the world of
+                    zero-day exploits and digital forensics, a constant cat-and-mouse game.
+                    <br><br>
+                    &gt; See the frontline at <a href="https://defcon.org/" target="_blank" rel="noopener noreferrer" class="external-link">DEF CON</a>.
+                </p>
+                </div>
+
+            <div id="teacher" class="future">
+                <h3>// Future_02: The Teaching Odyssey</h3>
+                <p>
+                    My path as a Teaching Assistant was a spiral of discovery...
+                    <br><br>
+                    ...It started in **Electrical Engineering**, teaching the logic of circuits.
+                    <br>...Then it moved to **Computer Science**, demystifying data structures.
+                    <br>...Then to **Math**, exploring the beauty of proofs.
+                    <br><br>
+                    The question remains: What is the next subject? The joy is in the act of
+                    teaching itself—of making the complex simple and igniting curiosity in others.
+                </p>
+                </div>
+
+            <div id="lego" class="future">
+                <h3>// Future_03: The Lego Architect</h3>
+                <p>
+                    Because I'm really interested in Lego collection. This isn't just a hobby; it's
+                    an alternate career. It's the same thing as software, really: teaching and building
+                    complex systems, whether with code or with bricks. It's about system design,
+                    modularity, and creating something tangible from a logical plan.
+                    <br><br>
+                    &gt; Build the future at <a href="https://ideas.lego.com/" target="_blank" rel="noopener noreferrer" class="external-link">Lego Ideas</a>.
+                </p>
+                </div>
+
+            <div id="player" class="future">
+                <h3>// Future_04: The Unexpected Passion</h3>
+                <p>
+                    I am going to be a table tennis player. All the logic, speed, and precision
+                    from software engineering... all the spin and strategy... it's all there on the table.
+                    The code compiler was fast, but a 100 mph smash is faster. This is a physical
+                    chess match, a test of reflexes and strategy.
+                    <br><br>
+                    &gt; Watch the pros at the <a href="https://www.ittf.com/" target="_blank" rel="noopener noreferrer" class="external-link">ITTF</a>.
+                    <br>&gt; See an epic match on <a href="https://youtube.com/shorts/kWePYEdVbhc?si=RYg8pdqKv-gJ4sMw" target="_blank" rel="noopener noreferrer" class="external-link">YouTube</a>.
+                </p>
+                </div>
+
+        </main>
+
+    </div>
+
+    <footer class="credits-footer">
+        <h4>Artist Statement</h4>
+        <p>
+            This project explores the "alternative futures" branching from my current identity as a
+            software engineer. The main path (Amazon > F5) is linear, but the hypertext links
+            break this linearity, allowing a simultaneous glimpse into parallel lives: the hacker,
+            the educator, the architect, and the athlete. The "hacker" aesthetic represents the code that underlies all
+            these potential realities.
+        </p>
+
+        <h4>Credits & Inspiration</h4>
+        <p>
+            &bull; <strong>Concept & Inspiration:</strong> Mendi + Keith Obadike's
+            <a href="http://blacknetart.com/keepingupappearances.html" target="_blank" rel="noopener noreferrer">Keeping up appearances (2001)</a>.
+            <br>
+            &bull; <strong>Further Research:</strong> The <a href="https://rhizome.org/art/artbase/" target="_blank" rel="noopener noreferrer">Rhizome ArtBase</a>
+            and Hypertext collection.
+            <br>
+            &bull; <strong>Assets:</strong> Background image (`image_c0dbdd.jpg`) and audio files sourced
+            for this project.
+        </p>
+    </footer>
+
+    <script>
+        // Event listener for the start overlay
+        document.getElementById('start-overlay').addEventListener('click', function() {
+            // Hide the overlay
+            this.style.opacity = '0';
+            this.style.display = 'none';
+
+            // Fade in the main content
+            document.getElementById('main-content').style.opacity = '1';
+        });
+
+        // Function to show the selected "future"
+        function showFuture(futureId, event) {
+            // This stops the link from jumping the page to the top
+            event.preventDefault();
+
+            // Play the appropriate sound for each path
+            var soundId = futureId + '-sound';
+            if (futureId === 'player') {
+                soundId = 'pingpong-sound';
+            }
+
+            var sound = document.getElementById(soundId);
+            if (sound) {
+                sound.currentTime = 0; // Rewind to start
+                sound.play();
+            }
+
+            // First, get all the "future" sections
+            var futures = document.querySelectorAll('.future');
+
+            // Loop through them and remove the 'active' class (to hide them all)
+            futures.forEach(function(future) {
+                future.classList.remove('active');
+            });
+
+            // Now, get just the one we want to show
+            var activeFuture = document.getElementById(futureId);
+
+            // Add the 'active' class to it, which makes it visible (see CSS)
+            if (activeFuture) {
+                activeFuture.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
